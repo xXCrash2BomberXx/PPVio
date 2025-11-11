@@ -39,6 +39,7 @@ app.get('/manifest.json', (req, res) => {
             types: [defaultType],
             idPrefixes: [prefix],
             catalogs: [{
+                type: defaultType,
                 id: prefix + 'PPV.to',
                 name: 'PPV.to',
                 extra: [{
