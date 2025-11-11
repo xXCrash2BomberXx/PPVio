@@ -94,7 +94,7 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                 posterShape: 'landscape',
                 background: stream.poster,
                 videos: [{
-                    id: req.params.id,
+                    id: req.params.id + ':1:1',
                     title: stream.name,
                     released: new Date(1000 * stream.starts_at).toISOString(),
                     thumbnail: stream.poster,
@@ -103,7 +103,8 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                         name: stream.uri_name,
                         behaviorHints: { notWebReady: true }
                     }]
-                }]
+                }],
+                behaviorHints: { defaultVideoId: req.params.id + ':1:1' }
             }
         });
     } catch (error) {
