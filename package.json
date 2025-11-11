@@ -1,0 +1,17 @@
+{
+  "name": "PPVtio",
+  "version": "0.1.0",
+  "description": "A Stremio addon that scrapes live sport streams from PPV.to.",
+  "main": "addon.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env addon.js",
+    "local": "concurrently \"npm start\" \"npx ngrok http 7000\""
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "ngrok": "^5.0.0-beta.2"
+  }
+}
