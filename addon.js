@@ -63,7 +63,8 @@ app.get('/catalog/:type/:id/:extra?.json', async (req, res) => {
                 id: prefix + y.id,
                 type: req.params.type,
                 name: y.name,
-                poster: y.poster
+                poster: y.poster,
+                posterShape: 'landscape'
             }))) ?? []
         });
     } catch (error) {
@@ -76,8 +77,7 @@ app.get('/catalog/:type/:id/:extra?.json', async (req, res) => {
 app.get('/meta/:type/:id.json', async (req, res) => {
     try {
         if (!req.params.id?.startsWith(prefix)) throw new Error(`Unknown ID in Meta handler: "${req.params.id}"`);
-        const trimmedID = req.params.id.slice(prefix.length);
-        const stream = streams?.flatMap(x => x.streams).find(x => x.id === trimmedID);
+        const stream = streams?.flatMap(x => x.streams).find(x => `${prefix}${x.id}` === req.params.id);
         if (!stream) throw new Error(`Unknown ID in Meta handler: "${req.params.id}"`);
         return res.json({
             meta: {
