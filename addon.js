@@ -60,7 +60,7 @@ app.get('/catalog/:type/:id/:extra?.json', async (req, res) => {
         if (!req.params.id?.startsWith(prefix)) throw new Error(`Unknown ID in Catalog handler: "${req.params.id}"`);
         return res.json({
             metas: streams?.flatMap(x => x.streams.map(y => ({
-                id: y.id,
+                id: prefix + y.id,
                 type: req.params.type,
                 name: y.name,
                 poster: y.poster
