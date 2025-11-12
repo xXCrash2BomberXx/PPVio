@@ -41,7 +41,7 @@ app.get('/manifest.json', (req, res) => {
             version: VERSION,
             name: 'PPVtio | ElfHosted',
             description: 'Play PPV.to live-streams.',
-            resources: ['catalog', 'stream', 'meta'],
+            resources: ['catalog', 'meta'],
             types: [defaultType],
             idPrefixes: [prefix],
             catalogs: [{
@@ -101,7 +101,14 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                     streams: [{
                         url: (await (await fetch(stream.iframe)).text()).match(/https:\/\/.*?\.m3u8/)?.[0],
                         name: stream.uri_name,
-                        behaviorHints: { notWebReady: true }
+                        behaviorHints: {
+                            notWebReady: true,
+                            proxyHeaders: {
+                                request: {
+                                    'referer': 'https://ppv.to/'
+                                }
+                            }
+                        }
                     }]
                 }],
                 behaviorHints: { defaultVideoId: req.params.id + ':1:1' }
