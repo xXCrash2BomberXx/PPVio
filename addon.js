@@ -52,7 +52,11 @@ app.get('/manifest.json', (req, res) => {
                     name: 'genre',
                     options: streams?.map(x => x.category) ?? []
                 }]
-            }]
+            }],
+            "stremioAddonsConfig": {
+                "issuer": "https://stremio-addons.net",
+                "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Rz0E6-ZFJIlDkrgajUt2cQ.FgtbqfyoLUiM2muD70GJk6OTQMCrlgL51svfQ_dpnwolOW5zdV6UzP3S6ilA9sTAUZFY8np9br99kfhIyxzhMplU3-tMbW6ry4su_IQto3R8vYV4UtPJER3khm1BYAFw._bUnAtkhN6WSXg_aTvDpSw"
+              }
         });
     } catch (error) {
         if (process.env.DEV_LOGGING) console.error('Error in Manifest handler: ' + error);
