@@ -37,9 +37,9 @@ setInterval(async () => {
 app.get('/manifest.json', (req, res) => {
     try {
         return res.json({
-            id: 'ppvtio.elfhosted.com',
+            id: 'ppvtio.vercel.com',
             version: VERSION,
-            name: 'PPVtio | ElfHosted',
+            name: 'PPVtio | Vercel',
             description: 'Play PPV.to live-streams.',
             resources: ['catalog', 'meta'],
             types: [defaultType],
