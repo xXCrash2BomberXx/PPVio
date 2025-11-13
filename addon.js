@@ -58,6 +58,7 @@ app.get('/manifest.json', async (req, res) => {
                     options: streams?.map(x => x.category) ?? []
                 }]
             }],
+            logo: `https://github.com/xXCrash2BomberXx/PPVio/blob/${process.env.DEV_LOGGING ? 'main' : `v${VERSION}`}/icon.png?raw=true`,
             "stremioAddonsConfig": {
                 "issuer": "https://stremio-addons.net",
                 "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..Rz0E6-ZFJIlDkrgajUt2cQ.FgtbqfyoLUiM2muD70GJk6OTQMCrlgL51svfQ_dpnwolOW5zdV6UzP3S6ilA9sTAUZFY8np9br99kfhIyxzhMplU3-tMbW6ry4su_IQto3R8vYV4UtPJER3khm1BYAFw._bUnAtkhN6WSXg_aTvDpSw"
