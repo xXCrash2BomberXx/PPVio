@@ -42,7 +42,7 @@ app.get('/manifest.json', async (req, res) => {
     try {
         await getData();
         return res.json({
-            id: 'ppvio.vercel.com',
+            id: 'ppvio.vercel.app',
             version: VERSION,
             name: 'PPVio | Vercel',
             description: 'Play PPV live-streams.',
