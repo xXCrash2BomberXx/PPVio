@@ -31,7 +31,7 @@ async function getData() {
     if (streams && (now - lastFetchTime) < 3600000) return;
     lastFetchTime = now;
     try {
-        streams = (await (await fetch('https://ppv.to/api/streams')).json()).streams;
+        streams = (await (await fetch('https://old.ppv.to/api/streams')).json()).streams;
     } catch (error) {
         if (process.env.DEV_LOGGING) console.error('Error in Stream fetching: ' + error);
     }
