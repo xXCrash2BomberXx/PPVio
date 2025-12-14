@@ -1,6 +1,6 @@
 {
   "name": "PPVio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Stremio addon that scrapes PPV live sport streams.",
   "main": "addon.js",
   "scripts": {
