@@ -129,9 +129,6 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                                     'sec-fetch-mode': 'cors',
                                     'sec-fetch-site': 'cross-site',
                                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0'
-                                },
-                                response: {
-                                    'Content-Type': 'video/mp2t'
                                 }
                             }
                         }
