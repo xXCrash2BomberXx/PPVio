@@ -118,7 +118,17 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                             notWebReady: true,
                             proxyHeaders: {
                                 request: {
-                                    'referrer': 'https://modistreams.org/'
+                                    'referrer': 'https://modistreams.org/',
+                                    'accept-language': 'en-US,en;q=0.9',
+                                    'cache-control': 'no-cache',
+                                    'pragma': 'no-cache',
+                                    'sec-ch-ua': '"Microsoft Edge";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+                                    'sec-ch-ua-mobile': '?0',
+                                    'sec-ch-ua-platform': '"Windows"',
+                                    'sec-fetch-dest': 'empty',
+                                    'sec-fetch-mode': 'cors',
+                                    'sec-fetch-site': 'cross-site',
+                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0'
                                 }
                             }
                         }
