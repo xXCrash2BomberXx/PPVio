@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/stream/:url', async (req, res, next) => {
-    res.set('Content-Type', 'application/x-mpegURL');
+    res.set('Content-Type', 'application/vnd.apple.mpegurl');
     return res.send(`#EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=7440000,BANDWIDTH=9280000,RESOLUTION=1920x1080,FRAME-RATE=59.940,CODECS="avc1.4d402a,mp4a.40.2",CLOSED-CAPTIONS=NONE\n${req.params.url.replace('index.m3u8', 'tracks-v1a1/mono.ts.m3u8')}`);
 });
 
