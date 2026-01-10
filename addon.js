@@ -112,7 +112,7 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                     released: new Date(1000 * stream.starts_at).toISOString(),
                     thumbnail: stream.poster,
                     streams: [{
-                        url: atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]).replace('index.m3u8', 'tracks-v1a1/mono.ts.m3u8'),
+                        url: atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]),  // .replace('index.m3u8', 'tracks-v1a1/mono.ts.m3u8'),
                         name: stream.uri_name,
                         behaviorHints: {
                             notWebReady: true,
