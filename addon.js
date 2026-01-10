@@ -24,11 +24,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/stream/:url', async (req, res, next) => {
-    res.set('Content-Type', 'application/vnd.apple.mpegurl');
-    return res.send(`#EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=7440000,BANDWIDTH=9280000,RESOLUTION=1920x1080,FRAME-RATE=59.940,CODECS="avc1.4d402a,mp4a.40.2",CLOSED-CAPTIONS=NONE\n${req.params.url.replace('index.m3u8', 'tracks-v1a1/mono.ts.m3u8')}`);
-});
-
 let streams;
 let lastFetchTime = 0;
 async function getData() {
@@ -117,7 +112,7 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                     released: new Date(1000 * stream.starts_at).toISOString(),
                     thumbnail: stream.poster,
                     streams: [{
-                        url: `${req.protocol}://${req.get('host')}/stream/${encodeURIComponent(atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]))}`,
+                        url: atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]).replace('index.m3u8', 'tracks-v1a1/mono.ts.m3u8'),
                         name: stream.uri_name,
                         behaviorHints: {
                             notWebReady: true,
