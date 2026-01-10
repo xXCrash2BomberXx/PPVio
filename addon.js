@@ -127,7 +127,7 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                     released: new Date(1000 * stream.starts_at).toISOString(),
                     thumbnail: stream.poster,
                     streams: [{
-                        url: `${req.protocol}://${req.get('host')}/stream/${atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0])}`,
+                        url: `${req.protocol}://${req.get('host')}/stream/${encodeURIComponent(atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]))}`,
                         name: stream.uri_name,
                         behaviorHints: {
                             notWebReady: true,
