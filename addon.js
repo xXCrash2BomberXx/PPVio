@@ -112,7 +112,7 @@ app.get('/meta/:type/:id.json', async (req, res) => {
                     released: new Date(1000 * stream.starts_at).toISOString(),
                     thumbnail: stream.poster,
                     streams: [{
-                        url: atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]),  //.replace("index", "mono.ts"),
+                        url: atob((await (await fetch(stream.iframe)).text()).match(/(?<=atob\(").*?(?="\))/)?.[0]).replace("index", "mono.ts"),
                         name: stream.uri_name,
                         behaviorHints: {
                             notWebReady: true,
